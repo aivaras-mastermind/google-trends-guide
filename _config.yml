@@ -4,3 +4,5 @@ theme: minima
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+webmaster_verifications:
+  google: nmVCBuvzjdUckpEaP5WZsf-V6XCH8QEg0Zjt-53tBPM
