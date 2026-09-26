@@ -1,0 +1,6 @@
+title: Google Trends Guides
+description: Practical guides to getting more out of Google Trends data.
+theme: minima
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
