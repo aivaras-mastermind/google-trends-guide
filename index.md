@@ -97,3 +97,7 @@ The most-searched keyword in your list, with a smooth (not spiky) trend, in the 
 
 **How small can a keyword be and still be measured?**
 Next to one big keyword, anything below about 0.5 % of it rounds to zero. With bridge keywords stepping down in size, much smaller keywords can be measured — the automated tool does this and labels how precise each result is.
+
+## More guides
+
+- **[pytrends is archived: how to get Google Trends data in Python in 2026](pytrends-alternative/)** — why pytrends fails with 429 errors and what works instead (official alpha API, a DIY client, a managed API), with code.
