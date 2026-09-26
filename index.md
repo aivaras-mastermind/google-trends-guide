@@ -6,7 +6,7 @@ description: "Google Trends only compares 5 keywords at a time, and each compari
 
 Google Trends is the best free source of relative search interest, but it has one frustrating limit: **you can compare at most 5 keywords at once.** Worse, every comparison is scaled on its own: Google sets the highest point *within that comparison* to 100 and scales everything else relative to it. So "40" in one comparison and "40" in another are not the same thing, and you can't simply put two comparisons side by side.
 
-This guide shows how to compare **any number of keywords on one common scale** — first by hand with the *anchor keyword* method, then automatically.
+This guide shows how to compare **any number of keywords on one common scale** — first by hand with the *anchor keyword* method, then [automatically with a free-to-try tool](https://apify.com/ambitious_vagabond/google-trends-unlimited).
 
 ## Why you can't just combine two Google Trends comparisons
 
