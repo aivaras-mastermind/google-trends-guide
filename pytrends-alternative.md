@@ -3,6 +3,8 @@ layout: page
 title: "pytrends Is Archived: How to Get Google Trends Data in Python in 2026"
 description: "pytrends is archived and keeps failing with 429 errors. Here are the ways to get Google Trends data in Python that still work in 2026 — the official alpha API, a do-it-yourself client, and a managed API — with code."
 permalink: /pytrends-alternative/
+nav_title: "pytrends alternative"
+nav_order: 2
 ---
 
 For years, **pytrends** was the default way to pull Google Trends data into Python. Today its GitHub repository is **archived (read-only)**: no new releases, no fixes, and well over a hundred open issues — dozens of them about the same error:
@@ -116,4 +118,8 @@ Google Trends shows aggregated, anonymous search-interest statistics — no pers
 
 ---
 
-Related guide: **[How to compare more than 5 keywords in Google Trends](../)** — the anchor-keyword method explained step by step.
+## More guides
+
+- **[How to compare more than 5 keywords in Google Trends](../)**: the anchor-keyword method, step by step.
+- **[Bulk Google Trends check: which of your keywords are rising](../bulk-google-trends/)**: year-over-year growth for a whole keyword list, with a Python script.
+- **[How to estimate search volume from Google Trends](../google-trends-search-volume/)**: turn 0–100 into estimated monthly searches.

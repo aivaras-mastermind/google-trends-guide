@@ -1,10 +1,14 @@
 ---
 layout: page
+nav_title: "Compare 5+ keywords"
+nav_order: 1
 title: "How to Compare More Than 5 Keywords in Google Trends (Free Method + Automated Tool)"
-description: "Google Trends only compares 5 keywords at a time, and each comparison has its own 0–100 scale. Here is the anchor-keyword method to compare 10, 50 or 500 keywords correctly — by hand or automatically."
+description: "Google Trends only compares 5 keywords at a time (8 in the new Explore), and each comparison has its own 0–100 scale. Here is the anchor-keyword method to compare 10, 50 or 500 keywords correctly — by hand or automatically."
 ---
 
-Google Trends is the best free source of relative search interest, but it has one frustrating limit: **you can compare at most 5 keywords at once.** Worse, every comparison is scaled on its own: Google sets the highest point *within that comparison* to 100 and scales everything else relative to it. So "40" in one comparison and "40" in another are not the same thing, and you can't simply put two comparisons side by side.
+*Updated October 2026 for the new Google Trends Explore.*
+
+Google Trends is the best free source of relative search interest, but it has one frustrating limit: **you can only compare a handful of keywords at once — 5 in classic Explore, and since August 2026 up to 8 in the new Explore.** Groups don't get around it: terms joined with `+` are added together into one line, so you see their combined interest, not each keyword separately. Worse, every comparison is scaled on its own: Google sets the highest point *within that comparison* to 100 and scales everything else relative to it. So "40" in one comparison and "40" in another are not the same thing, and you can't simply put two comparisons side by side.
 
 This guide shows how to compare **any number of keywords on one common scale** — first by hand with the *anchor keyword* method, then [automatically with a free-to-try tool](https://apify.com/ambitious_vagabond/google-trends-unlimited).
 
@@ -18,7 +22,7 @@ The fix is to include **one shared keyword — the anchor — in every compariso
 
 **Step 1 — Pick a strong anchor.** Use your most-searched keyword. If the anchor is weak, a bigger keyword in the same comparison takes the 100 and the anchor's own numbers become tiny and imprecise.
 
-**Step 2 — Build comparisons of the anchor + 4 other keywords.** Keep **location, time range, category and search type identical** in every comparison.
+**Step 2 — Build comparisons of the anchor + 4 other keywords** (anchor + 7 in the new Explore). Keep **location, time range, category and search type identical** in every comparison.
 
 **Step 3 — Download each comparison** (the ↓ icon on the "Interest over time" chart gives a CSV).
 
@@ -47,7 +51,7 @@ In comparison 2, keyword E is bigger than the anchor, so Google gave E the 100 a
 
 **3. Results vary slightly between requests.** Google Trends is based on a sample of searches, so the same comparison can come back a few percent different on another day. Do all comparisons in one session, and expect small differences versus the website.
 
-Done carefully, this works — but with 30 keywords it's already 8+ comparisons, CSV downloads and a spreadsheet of factors, and the rounding problem means you also need bridge comparisons for the small terms.
+Done carefully, this works — but with 30 keywords it's already 5–8 comparisons, CSV downloads and a spreadsheet of factors, and the rounding problem means you also need bridge comparisons for the small terms.
 
 ## The automated way
 
@@ -87,7 +91,7 @@ Each item also contains a `timeline` array (date + value) ready for charts or pa
 ## FAQ
 
 **Can I compare more than 5 keywords directly on the Google Trends website?**
-No — the website and its downloads are limited to 5 terms per comparison. You need the anchor method or a tool that applies it.
+Up to 8 since August 2026, in the new Explore view (classic Explore stays at 5). Terms grouped with `+` count as one combined line, so they don't help. Beyond 8 separate keywords you need the anchor method or a tool that applies it — and the internal endpoints most scripts and tools use (including pytrends) still accept only 5 keywords per request.
 
 **Why don't my numbers match the Google Trends website exactly?**
 Google samples searches and rounds to whole numbers, so any two requests can differ by a few percent. Relative differences between keywords are what matter.
@@ -100,4 +104,6 @@ Next to one big keyword, anything below about 0.5 % of it rounds to zero. With b
 
 ## More guides
 
+- **[Bulk Google Trends check: which of your keywords are rising](bulk-google-trends/)**: size, year-over-year growth, seasonality and spikes for a whole keyword list.
+- **[How to estimate search volume from Google Trends](google-trends-search-volume/)**: turn the 0–100 scale into estimated monthly searches with one known keyword.
 - **[pytrends is archived: how to get Google Trends data in Python in 2026](pytrends-alternative/)** — why pytrends fails with 429 errors and what works instead (official alpha API, a DIY client, a managed API), with code.
