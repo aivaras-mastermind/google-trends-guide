@@ -1,0 +1,58 @@
+# On every content push: wait for GitHub Pages, then submit all sitemap URLs to IndexNow
+# (Bing, Yandex, Seznam, Naver; no account needed).
+# Weekly: cross-post the next not-yet-posted guide to dev.to with a canonical link back here.
+# Needs repo secret DEV_API_KEY (dev.to -> Settings -> Extensions); the dev.to job skips without it.
+name: Promote
+
+on:
+  push:
+    branches: [main]
+    paths: ['*.md', '_config.yml']
+  schedule:
+    - cron: '0 8 * * 3'  # Wednesdays 08:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: promote
+
+jobs:
+  indexnow:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for GitHub Pages to deploy
+        run: sleep 150
+      - name: Submit sitemap URLs to IndexNow
+        run: |
+          SITE=https://aivaras-mastermind.github.io/google-trends-guide/
+          KEY=7056892050376063c1e7a0b34272ae0e
+          URLS=$(curl -fsS "${SITE}sitemap.xml" | grep -o '<loc>[^<]*' | sed 's/<loc>//' | jq -R . | jq -sc .)
+          jq -n --arg key "$KEY" --arg loc "${SITE}${KEY}.txt" --argjson urls "$URLS" \
+            '{host: "aivaras-mastermind.github.io", key: $key, keyLocation: $loc, urlList: $urls}' > body.json
+          curl -sS -o /dev/null -w 'IndexNow HTTP %{http_code}\n' -X POST https://api.indexnow.org/indexnow \
+            -H 'Content-Type: application/json; charset=utf-8' --data @body.json
+
+  devto:
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    env:
+      DEV_API_KEY: ${{ secrets.DEV_API_KEY }}
+    steps:
+      - if: env.DEV_API_KEY == ''
+        run: echo "::warning::DEV_API_KEY secret not set - skipping dev.to cross-post"
+      - if: env.DEV_API_KEY != ''
+        uses: actions/checkout@v4
+      - if: env.DEV_API_KEY != ''
+        uses: astral-sh/setup-uv@v6
+      - name: Cross-post next guide
+        if: env.DEV_API_KEY != ''
+        run: uv run _tools/devto_publish.py --next --publish
+      - name: Record what was posted
+        if: env.DEV_API_KEY != ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _tools/devto_posted.json
+          git diff --cached --quiet || { git commit -qm "dev.to: record cross-post"; git push -q; }
