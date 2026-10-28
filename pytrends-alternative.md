@@ -120,6 +120,7 @@ Google Trends shows aggregated, anonymous search-interest statistics — no pers
 
 ## More guides
 
+- **[Why Google Trends data changes between downloads](../google-trends-data-changes/)**: sampling, rounding and scaling, and how to get stable numbers.
 - **[How to compare more than 5 keywords in Google Trends](../)**: the anchor-keyword method, step by step.
 - **[Bulk Google Trends check: which of your keywords are rising](../bulk-google-trends/)**: year-over-year growth for a whole keyword list, with a Python script.
 - **[How to estimate search volume from Google Trends](../google-trends-search-volume/)**: turn 0–100 into estimated monthly searches.

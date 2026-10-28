@@ -112,6 +112,7 @@ Keyword Planner rounds and groups variants, and Trends is sampled and scaled to 
 
 ## More guides
 
+- **[Why Google Trends data changes between downloads](../google-trends-data-changes/)**: sampling, rounding and scaling, and how to get stable numbers.
 - **[How to compare more than 5 keywords in Google Trends](../)**: the anchor-keyword method, step by step.
 - **[Bulk Google Trends check: which of your keywords are rising](../bulk-google-trends/)**: trend direction, year-over-year growth and seasonality for a whole keyword list.
 - **[pytrends is archived: how to get Google Trends data in Python in 2026](../pytrends-alternative/)**: what still works after pytrends.
