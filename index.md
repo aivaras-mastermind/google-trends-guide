@@ -104,6 +104,7 @@ Next to one big keyword, anything below about 0.5 % of it rounds to zero. With b
 
 ## More guides
 
+- **[Why Google Trends data changes between downloads](google-trends-data-changes/)**: sampling, rounding and scaling, and how to get stable numbers.
 - **[Bulk Google Trends check: which of your keywords are rising](bulk-google-trends/)**: size, year-over-year growth, seasonality and spikes for a whole keyword list.
 - **[How to estimate search volume from Google Trends](google-trends-search-volume/)**: turn the 0–100 scale into estimated monthly searches with one known keyword.
 - **[pytrends is archived: how to get Google Trends data in Python in 2026](pytrends-alternative/)** — why pytrends fails with 429 errors and what works instead (official alpha API, a DIY client, a managed API), with code.
